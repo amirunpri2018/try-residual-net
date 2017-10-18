@@ -68,7 +68,7 @@ def main():
     for data in (train_data, validation_data):
         data.fit(x_train)  # 実用を考えると、x_validationでのfeaturewiseのfitは無理だと思う……。
 
-    batch_size = 64
+    batch_size = 128
     epochs     = 200
 
     results = model.fit_generator(train_data.flow(x_train, y_train, batch_size=batch_size),
