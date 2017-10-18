@@ -17,7 +17,7 @@ def ljuxt(*fs):  # Kerasはジェネレーターを引数に取るのを嫌が�
 
 def create_model(x, y):
     def conv_2d(filters, kernel_size, strides=1):
-        return Conv2D(filters, kernel_size, strides=strides, padding='same', kernel_initializer='he_normal')
+        return Conv2D(filters, kernel_size, strides=strides, padding='same', kernel_initializer='he_normal', use_bias=False)
 
     def bn_relu_conv(filters, kernel_size, strides=1):
         return rcompose(BatchNormalization(), Activation('relu'), conv_2d(filters, kernel_size, strides))
@@ -26,7 +26,7 @@ def create_model(x, y):
         return rcompose(ljuxt(rcompose(bn_relu_conv(filters // 4, 1, strides),
                                        bn_relu_conv(filters // 4, 3),
                                        bn_relu_conv(filters,      1)),
-                              rcompose(bn_relu_conv(filters,      1, strides))),
+                              rcompose(bn_relu_conv(filters,      1, strides=strides))),
                         Add())
 
     def residual_unit(filters):
@@ -68,7 +68,7 @@ def main():
     for data in (train_data, validation_data):
         data.fit(x_train)  # 実用を考えると、x_validationでのfeaturewiseのfitは無理だと思う……。
 
-    batch_size = 128
+    batch_size = 64
     epochs     = 200
 
     results = model.fit_generator(train_data.flow(x_train, y_train, batch_size=batch_size),
