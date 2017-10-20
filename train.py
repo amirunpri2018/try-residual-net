@@ -42,14 +42,14 @@ def create_model(x, y):
                               identity),
                         Add())
 
-    def residual_units(filters, strides):
+    def residual_block(filters, strides):
         return rcompose(first_residual_unit(filters, strides),
                         rcompose(*repeatedly(partial(residual_unit, filters), 18 - 1)))
 
     computational_graph = rcompose(conv_2d(16, 3),
-                                   residual_units( 64, 1),
-                                   residual_units(128, 2),
-                                   residual_units(256, 2),
+                                   residual_block( 64, 1),
+                                   residual_block(128, 2),
+                                   residual_block(256, 2),
                                    BatchNormalization(),
                                    Activation('relu'),
                                    GlobalAveragePooling2D(),
