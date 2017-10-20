@@ -24,8 +24,6 @@ $ python3 -m try_residual_net.check
 
 ![loss](./results/loss.png)
 
-![learning rate](./results/learning-rate.png)
-
 私が試した結果だと、cifar10の精度はxx.xx%になりました。論文だと94.54%なのですけど……。どこが違うんでしょ？
 
 # Notes
