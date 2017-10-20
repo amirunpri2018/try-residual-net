@@ -31,7 +31,7 @@ def create_model(x, y):
                                        bn_relu(),
                                        conv_2d(filters // 4, 3),
                                        bn_relu(),
-                                       conv_2d(filters,      3)),
+                                       conv_2d(filters,      1)),
                               rcompose(conv_2d(filters,      1, strides))),
                         Add())
 
