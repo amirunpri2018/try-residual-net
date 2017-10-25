@@ -35,7 +35,7 @@ def computational_graph(class_size):
         return Activation('relu')
 
     def conv(filter_size, kernel_size, stride_size=1):
-        return Conv2D(filter_size, kernel_size, strides=stride_size, padding='same', kernel_initializer='he_normal', kernel_regularizer=l2(0.0001), use_bias=False)
+        return Conv2D(filter_size, kernel_size, strides=stride_size, padding='same', kernel_initializer='he_normal', kernel_regularizer=l2(0.0001), use_bias=False)  # ReLUするならウェイトをHe初期化するのが基本らしい。あと、Kerasにはweight decayがなかったのでkernel_regularizerで代替したのたけど、これで正しい？
 
     def add():
         return Add()
@@ -44,7 +44,7 @@ def computational_graph(class_size):
         return GlobalAveragePooling2D()
 
     def dense(unit_size, activation):
-        return Dense(unit_size, activation=activation, kernel_regularizer=l2(0.0001))
+        return Dense(unit_size, activation=activation, kernel_regularizer=l2(0.0001))  # Kerasにはweight decayがなかったのでkernel_regularizerで代替したのたけど、これで正しい？
 
     # Define ResNet-164
 
@@ -97,7 +97,7 @@ def main():
     model.compile(loss='categorical_crossentropy', optimizer=SGD(momentum=0.9), metrics=['accuracy'])
 
     model.summary()
-    plot_model(model, to_file='./results/model.png')
+    # plot_model(model, to_file='./results/model.png')
 
     train_data      = ImageDataGenerator(featurewise_center=True, featurewise_std_normalization=True, width_shift_range=0.125, height_shift_range=0.125, horizontal_flip=True)
     validation_data = ImageDataGenerator(featurewise_center=True, featurewise_std_normalization=True)
