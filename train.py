@@ -46,7 +46,7 @@ def computational_graph(class_size):
     def dense(unit_size, activation):
         return Dense(unit_size, activation=activation, kernel_regularizer=l2(0.0001))  # Kerasにはweight decayがなかったのでkernel_regularizerで代替したのたけど、これで正しい？
 
-    # Define ResNet-164
+    # Define ResNet-164.
 
     def first_residual_unit(filter_size, stride_size):
         return rcompose(batch_normalization(),
