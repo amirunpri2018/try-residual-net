@@ -1,4 +1,4 @@
-ResNet[[1](https://arxiv.org/abs/1603.05027)]の、Kerasでの実装です。たぶん、もっともシンプルなコードなんじゃないかと。
+ResNet-164[[1](https://arxiv.org/abs/1603.05027)]の、Kerasでの実装です。たぶん、もっともシンプルなコードなんじゃないかと。
 
 # Usage
 
@@ -24,7 +24,7 @@ $ python3 -m try_residual_net.check
 
 ![loss](./results/loss.png)
 
-私が試した結果だと、cifar10の精度はxx.xx%になりました。論文だと94.54%なのですけど……。どこが違うんでしょ？
+私が試した結果だと、CIFAR-10の精度は94.70%になりました。論文の94.54%に近い値なので、多分コードは大丈夫。
 
 # Notes
 
