@@ -28,7 +28,7 @@ $ python3 check.py
 
 # Notes
 
-* ごめんなさい。TensorFlow環境でしか試していません。
+* ごめんなさい。Python3とTensorFlowの環境でしか試していません。
 * [https://github.com/nutszebra/residual_net](https://github.com/nutszebra/residual_net)を参考にして作成しています。私の能力だと、論文だけでは作れませんでした……。
 * Kerasに関数型プログラミングのテクニックを適用する方法は、[Kerasと関数型プログラミングで、楽ちんに深層学習してみた](https://tail-island.github.io/programming/2017/10/13/keras-and-fp.html)にまとめました。
 
