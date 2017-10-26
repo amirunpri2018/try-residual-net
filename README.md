@@ -11,13 +11,13 @@ $ pip3 install --upgrade tensorflow-gpu keras funcy matplotlib h5py
 ## 訓練
 
 ~~~ bash
-$ python3 -m try_residual_net.train
+$ python3 train.py
 ~~~
 
 ## 訓練結果の確認
 
 ~~~ bash
-$ python3 -m try_residual_net.check
+$ python3 check.py
 ~~~
 
 ![accuracy](./results/accuracy.png)
