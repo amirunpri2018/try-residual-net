@@ -20,9 +20,9 @@ $ python3 train.py
 $ python3 check.py
 ~~~
 
-![accuracy](./results/accuracy.png)
-
 ![loss](./results/loss.png)
+
+![accuracy](./results/accuracy.png)
 
 私が試した結果だと、CIFAR-10の精度は94.70%になりました。論文の94.54%に近い値なので、多分コードは大丈夫。
 
